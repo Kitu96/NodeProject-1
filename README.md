@@ -7,3 +7,10 @@ Listen to port 8080
 Write a request handler for /test,/hello
 Install nodemon and update the script inside package.json
 Differnence bewteen caret and tildta
+
+Initialize git
+.gitignore => /node_modules/
+Create a remote repo push all the code
+Create route extensions => /hello , /test
+Order matters a lot
+Install postman and test
