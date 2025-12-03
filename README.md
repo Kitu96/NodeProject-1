@@ -23,3 +23,4 @@ What is middleware and why it is used?
 How express js basically handles the request behind the scene
 Write a dummy Api for Admin
 write a dummy auth middleware for all user routes expect login
+Error Handling using app.use("/" ,(err,req,res,next)=>{})
