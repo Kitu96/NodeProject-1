@@ -14,3 +14,12 @@ Create a remote repo push all the code
 Create route extensions => /hello , /test
 Order matters a lot
 Install postman and test
+
+Mulitple Route handler
+next()
+next() with errors along with res.send()
+app.use("/route" , rH1, rH2,rH3,rH4)
+What is middleware and why it is used?
+How express js basically handles the request behind the scene
+Write a dummy Api for Admin
+write a dummy auth middleware for all user routes expect login

@@ -2,18 +2,19 @@ const express = require('express');
 
 const app = express();
 
-app.use("/user" , (req,res,next)=>{
-    console.log("Handling user response");
-    next();
-},(req,res,next)=>{
-    console.log("Handling 2nd response");
-    //res.send("2nd response");
-    next();
-},(req,res,next)=>{
-    console.log("Handling 3rd response");
-    res.send("3rd response");
+const { adminAuth, userAuth } = require("./middleware/auth");
+
+app.get("/admin/getAllData" ,adminAuth,(req,res,next)=>{
+res.send("Data fetched");
 });
 
+app.get("/admin/deleteAdmin" ,adminAuth, (req,res,next)=>{
+    res.send("Admin deleted successfully");
+})
+
+app.get("/user" , userAuth , (req,res,next)=>{
+    res.send("User information");
+})
 app.listen(8080,()=>{
     console.log("Server is running on port 8080...")
 })
