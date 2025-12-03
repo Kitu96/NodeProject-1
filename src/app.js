@@ -2,22 +2,18 @@ const express = require('express');
 
 const app = express();
 
-app.get("/user" , (req,res)=>{
-    res.send({firstName : "Laxmiprava" , lastName :"Mohapatra"});
-})
-
-app.post("/user",(req,res)=>{
-    res.send("Data saved successfully")
+app.use("/user" , (req,res,next)=>{
+    console.log("Handling user response");
+    next();
+},(req,res,next)=>{
+    console.log("Handling 2nd response");
+    //res.send("2nd response");
+    next();
+},(req,res,next)=>{
+    console.log("Handling 3rd response");
+    res.send("3rd response");
 });
 
-app.delete("/user", (req,res)=>{
-    res.send("Data deleted successfully!")
-});
-
-app.use("/test" , (req,res)=>{
-    res.send("Hello Kitu!!");
-})
-
-app.listen(8080 , ()=>{
-    console.log("Server running on port no 8080...");
+app.listen(8080,()=>{
+    console.log("Server is running on port 8080...")
 })
