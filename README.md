@@ -24,3 +24,11 @@ How express js basically handles the request behind the scene
 Write a dummy Api for Admin
 write a dummy auth middleware for all user routes expect login
 Error Handling using app.use("/" ,(err,req,res,next)=>{})
+
+Create a free cluster on mongooseDb official website(Mongo Atlas)
+Install mongoose library
+connect your application to the database "Connection-url"/devTinder'
+Call the ConnectDB function and connect to Database before starting application on 7777
+Create a userSchema(src==>models==>user) and user Model
+Create a POST/signup API to data to database
+push documents using API calls
