@@ -6,19 +6,36 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup" , async (req,res)=>{
-    const user = new User({
-      firstName : "Laxmiprava",
-      lastName : "Mohapatra",
-      emailId: "laxmiprava@gmail.com",
-      password : "laxmi@123"
-    });
-try{
- await user.save();
- res.send("User Data is saved successfully!");
-}catch(err){
+    const user = new User(req.body);
+   try{
+   await user.save();
+   res.send("User Data is saved successfully!");
+    }catch(err){
     console.log("User data is not saved.");
-}
-}) 
+}}) 
+
+app.get("/user" , async (req,res)=>{
+  try{
+    const user = await User.find({emailId:req.body.emailId});
+    if(user.length===0)
+    {
+      res.status(400).send("something went wrong");
+    }
+    res.send(user);
+  }catch(err){
+    console.error("USer not found!")
+  }
+})
+
+app.get("/feed" , async(req,res)=>{
+  try{
+    const user = await User.find({});
+    res.send(user);
+  }catch(err){
+    console.error("No found the feeds" + err.message);
+    
+  }
+})
 
 connectDB().then(()=>{
     console.log('Database connected successfully!');

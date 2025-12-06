@@ -32,3 +32,5 @@ Call the ConnectDB function and connect to Database before starting application 
 Create a userSchema(src==>models==>user) and user Model
 Create a POST/signup API to data to database
 push documents using API calls
+API - GET/user by emailId
+GET/feed API to fetch all user
