@@ -37,6 +37,16 @@ app.get("/feed" , async(req,res)=>{
   }
 })
 
+app.delete("/user" , async(req,res)=>{
+  const id = req.body;
+  try{
+    const user = await User.findOneAndDelete({_id :id});
+    res.send(user);
+  }catch(err){
+    res.status(400).send("Unable to delete the user");
+  }
+})
+
 connectDB().then(()=>{
     console.log('Database connected successfully!');
       },
